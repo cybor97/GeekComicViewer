@@ -47,7 +47,9 @@ function loadComic(url) {
         let comicNumberElement = document.getElementById('comicNumber');
         comicNumberElement.innerText = `#${currentComicNumber}`;
         comicNumberElement.setAttribute('href', `https://xkcd.com/${currentComicNumber}`);
-        comicNumberElement.setAttribute('target', `_blank`);
+
+        let shareThroughVKElement = document.getElementById('shareThroughVK');
+        shareThroughVKElement.setAttribute('href', `http://vk.com/share.php?url=https://xkcd.com/${currentComicNumber}`);
 
         currentComic.setAttribute('src', currentComicURL);
     }

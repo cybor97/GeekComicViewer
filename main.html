@@ -5,7 +5,10 @@
 </head>
 
 <body>
-    <a id="comicNumber"></a>
+    <div class="headerContainer">
+        <a id="comicNumber" target="_blank"></a>
+        <a id="shareThroughVK" target="_blank">VK</a>
+    </div>
     <img id="currentComic" />
     <div class="switcher">
         <button id="prevComicButton">PREV</button>
@@ -23,11 +26,15 @@
         flex-direction: column;
         align-items: stretch;
         justify-content: center;
+        border: 1px solid;
+        margin: 0px;
+        padding: 5px;
+        border-color: #6E7B91;
     }
 
     button {
         outline: none;
-        border: 5px 5px 5px 5px;
+        border: 1px solid;
         border-color: #6E7B91;
         background-color: white;
         color: #6E7B91;
@@ -42,6 +49,11 @@
     }
 
     div.switcher {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    div.headerContainer {
         display: flex;
         justify-content: space-between;
     }
