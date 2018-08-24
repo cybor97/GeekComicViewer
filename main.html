@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <a id="comicNumber"></a>
+    <img id="currentComic" />
+    <div class="switcher">
+        <button id="prevComicButton">PREV</button>
+        <button id="randomComicButton">RANDOM</button>
+        <button id="nextComicButton">NEXT</button>
+    </div>
+    <script>init()</script>
+</body>
+
+<style>
+    body {
+        display: flex;
+        height: auto;
+        width: auto;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+    }
+
+    button {
+        outline: none;
+        border: 5px 5px 5px 5px;
+        border-color: #6E7B91;
+        background-color: white;
+        color: #6E7B91;
+        border-radius: 5px;
+        transition: all linear 0.1s;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #6E7B91;
+        color: white;
+    }
+
+    div.switcher {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #currentComic {
+        max-width: 500px;
+        max-height: 500px;
+        min-width: 50px;
+        min-height: 50px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        align-self: center;
+        cursor: pointer;
+    }
+
+    #currentComic.loading {
+        filter: blur(10px)
+    }
+</style>
+
+</html>
