@@ -9,6 +9,13 @@
     ],
     "browser_action": {
         "default_popup": "main.html",
-        "default_icon": "xkcd.ico"
+        "default_icon": {
+            "225": "icons/xkcd225.png",
+            "128": "icons/xkcd128.png",
+            "64": "icons/xkcd64.png",
+            "48": "icons/xkcd48.png",
+            "32": "icons/xkcd32.png",
+            "16": "icons/xkcd16.png"
+        }
     }
 }

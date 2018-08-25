@@ -2,12 +2,13 @@
 
 <head>
     <script src="main.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 
 <body>
     <div class="headerContainer">
         <a id="comicNumber" target="_blank"></a>
-        <a id="shareThroughVK" target="_blank">VK</a>
+        <a id="shareThroughVK" href="#">VK</a>
     </div>
     <img id="currentComic" />
     <div class="switcher">
@@ -15,63 +16,6 @@
         <button id="randomComicButton">RANDOM</button>
         <button id="nextComicButton">NEXT</button>
     </div>
-    <script>init()</script>
 </body>
-
-<style>
-    body {
-        display: flex;
-        height: auto;
-        width: auto;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: center;
-        border: 1px solid;
-        margin: 0px;
-        padding: 5px;
-        border-color: #6E7B91;
-    }
-
-    button {
-        outline: none;
-        border: 1px solid;
-        border-color: #6E7B91;
-        background-color: white;
-        color: #6E7B91;
-        border-radius: 5px;
-        transition: all linear 0.1s;
-        cursor: pointer;
-    }
-
-    button:hover {
-        background-color: #6E7B91;
-        color: white;
-    }
-
-    div.switcher {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    div.headerContainer {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    #currentComic {
-        max-width: 500px;
-        max-height: 500px;
-        min-width: 50px;
-        min-height: 50px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        align-self: center;
-        cursor: pointer;
-    }
-
-    #currentComic.loading {
-        filter: blur(10px)
-    }
-</style>
 
 </html>
