@@ -16,9 +16,18 @@ function prevComic() {
         loadComic(`https://xkcd.com/${currentComicNumber - 1}/`);
 }
 
-function shareComic() {
+function shareComic(ev) {
     if (currentComicNumber != null) {
-
+        const windowProperties = "menubar=0,status=0,height=500,width=500,position=center";
+        const comicLink = `https://xkcd.com/${currentComicNumber}`;
+        switch (ev.target.id) {
+            case "shareThroughVK": window.open(`http://vk.com/share.php?url=${comicLink}`,
+                "Share via VK", windowProperties);
+            case "shareThroughFB": window.open(`https://www.facebook.com/sharer/sharer.php?u=${comicLink}`,
+                "Share via Facebook", windowProperties);
+            case "shareThroughGP": window.open(`https://plus.google.com/share?url=${comicLink}`,
+                "Share via Google Plus", windowProperties);
+        }
     }
 }
 
@@ -38,6 +47,10 @@ function loadComic(url) {
                 document.getElementById('prevComicButton').onclick = prevComic;
                 document.getElementById('nextComicButton').onclick = nextComic;
                 document.getElementById('randomComicButton').onclick = randomComic;
+
+                document.getElementById('shareThroughVK').onclick = shareComic;
+                document.getElementById('shareThroughFB').onclick = shareComic;
+                document.getElementById('shareThroughGP').onclick = shareComic;
             }
 
             currentComic.classList.remove('loading');
@@ -48,11 +61,6 @@ function loadComic(url) {
             let comicNumberElement = document.getElementById('comicNumber');
             comicNumberElement.innerText = `#${currentComicNumber}`;
             comicNumberElement.setAttribute('href', `https://xkcd.com/${currentComicNumber}`);
-
-            let shareThroughVKElement = document.getElementById('shareThroughVK');
-            shareThroughVKElement.onclick = () =>
-                window.open(`http://vk.com/share.php?url=https://xkcd.com/${currentComicNumber}`,
-                    "Share via VK", "menubar=0,status=0,height=500,width=500,position=center");
 
             currentComic.setAttribute('src', currentComicURL);
         }
