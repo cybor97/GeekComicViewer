@@ -1,9 +1,14 @@
 let currentComic = null;
-let currentComicNumber = null;
-randomComic();
+let currentComicNumber = null,
+    lastComicNumber = null;
+lastComic();
+
+function lastComic() {
+    loadComic('https://xkcd.com/', comicNumber => lastComicNumber = comicNumber);
+}
 
 function randomComic() {
-    loadComic('https://c.xkcd.com/random/comic/');
+    loadComic(`https://xkcd.com/${~~(lastComicNumber * Math.random())}`);
 }
 
 function nextComic() {
@@ -31,7 +36,7 @@ function shareComic(ev) {
     }
 }
 
-function loadComic(url) {
+function loadComic(url, onSuccess) {
     if (currentComic)
         currentComic.classList.add('loading');
 
@@ -57,6 +62,9 @@ function loadComic(url) {
 
             let currentComicURL = new RegExp('https:\\/\\/imgs\\.xkcd\\.com\\/comics\\/\\w*\\.png', 'gm').exec(req.responseText)[0];
             currentComicNumber = parseInt(new RegExp('https:\\/\\/xkcd\\.com\\/(\\d*)\\/').exec(req.responseText)[1]);
+
+            if (onSuccess)
+                onSuccess(currentComicNumber);
 
             let comicNumberElement = document.getElementById('comicNumber');
             comicNumberElement.innerText = `#${currentComicNumber}`;
