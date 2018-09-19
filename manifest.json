@@ -1,12 +1,13 @@
 {
     "name": "GeekComicViewer",
-    "version": "2.1",
+    "version": "2.2",
     "description": "Minimalistic and useful viewer for XKCD and CommitStrip comics",
     "manifest_version": 2,
     "author": "cybor97",
     "permissions": [
         "https://*.xkcd.com/*",
-        "http://*.commitstrip.com/*"
+        "http://*.commitstrip.com/*",
+        "http://*.dilbert.com/*"
     ],
     "icons": {
         "225": "icons/xkcd225.png",

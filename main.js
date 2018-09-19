@@ -1,5 +1,6 @@
 const xkcd = new XKCD(null, null);
 const commitStrip = new CommitStrip(null, null);
+const dilbert = new Dilbert(null, null);
 
 xkcd.lastComic();
 
@@ -16,6 +17,9 @@ setTimeout(() => {
                         break;
                     case 'commitstrip':
                         commitStrip.switchEngine().lastComic();
+                        break;
+                    case 'dilbert':
+                        dilbert.switchEngine().lastComic();
                         break;
                     default:
                         engineName = 'Engine not found';
