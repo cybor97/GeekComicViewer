@@ -28,7 +28,7 @@ class XKCD extends IComic {
 
     loadComic(url, onSuccess) {
         if (this.currentComicElement)
-            this.currentComicElement.classList.add('loading');
+            this.toggleLoading(true);
 
         let req = new XMLHttpRequest();
         req.open('GET', url);
@@ -37,7 +37,7 @@ class XKCD extends IComic {
             if (req.status === 200) {
                 this.switchEngine();
 
-                this.currentComicElement.classList.remove('loading');
+                this.toggleLoading(false);
 
                 this.currentComicURL = new RegExp('https:\\/\\/imgs\\.xkcd\\.com\\/comics\\/\\w*\\.png', 'gm').exec(req.responseText)[0];
                 this.currentComicTag = parseInt(new RegExp('https:\\/\\/xkcd\\.com\\/(\\d*)\\/').exec(req.responseText)[1]);

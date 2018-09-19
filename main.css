@@ -150,7 +150,7 @@ a[href]:hover, #shareThroughVK:hover, #shareThroughFB:hover, #shareThroughGP:hov
 #comicNumber {
     text-align: center;
     min-width: 40px;
-    max-width: 200px;
+    max-width: 150px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;

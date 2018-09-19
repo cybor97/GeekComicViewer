@@ -7,12 +7,12 @@ class CommitStrip extends IComic {
 
     lastComic() {
         let req = new XMLHttpRequest();
+        this.toggleLoading(true);
         req.open('GET', this.hostUrl);
         req.send();
         req.onloadend = () => {
             const comicPageURL = new RegExp('http:\\/\\/www\\.commitstrip\\.com\\/en\\/\\w*\\/\\w*\\/\\w*\\/[a-zA-Z0-9_-]*\\/', 'mg')
                 .exec(req.responseText)[0];
-
 
             this.loadComic(comicPageURL, comicTag => this.lastComicTag = this.currentComicTag = comicTag);
         }
@@ -38,7 +38,7 @@ class CommitStrip extends IComic {
 
     loadComic(url, onSuccess) {
         if (this.currentComicElement)
-            this.currentComicElement.classList.add('loading');
+            this.toggleLoading(true);
 
         let req = new XMLHttpRequest();
         req.open('GET', url);
@@ -60,7 +60,7 @@ class CommitStrip extends IComic {
                     this.nextComicURL = nextMatch[1];
 
 
-                this.currentComicElement.classList.remove('loading');
+                this.toggleLoading(false);
 
                 this.currentComicURL =
                     new RegExp('(http|https):\\/\\/www\\.commitstrip\\.com\\/wp-content\\/uploads\\/\\w*\\/\\w*\\/Strip.*\\.jpg', 'gm')

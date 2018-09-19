@@ -1,4 +1,6 @@
+//used as abstract class
 class IComic {
+    //TODO:Refactor(+implementations), should NOT contain UI elements
     constructor(currentComicElement, currentComicURL) {
         this.currentComicElement = currentComicElement;
         this.currentComicURL = currentComicURL;
@@ -14,6 +16,15 @@ class IComic {
     }
 
     prevComic() {
+    }
+
+    toggleLoading(isLoading) {
+        if (this.currentComicElement) {
+            if (isLoading)
+                this.currentComicElement.classList.add('loading');
+            else
+                this.currentComicElement.classList.remove('loading');
+        }
     }
 
     switchEngine() {
