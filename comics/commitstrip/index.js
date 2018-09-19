@@ -1,0 +1,3 @@
+class CommitStrip extends IComic {
+
+}

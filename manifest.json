@@ -1,12 +1,21 @@
 {
-    "name": "XKCD Viewer",
-    "version": "1.1",
-    "description": "Minimalistic and useful viewer for XKCD comics",
+    "name": "GeekComicViewer",
+    "version": "2.0",
+    "description": "Minimalistic and useful viewer for XKCD and CommitStrip comics",
     "manifest_version": 2,
     "author": "cybor97",
     "permissions": [
-        "https://*.xkcd.com/*"
+        "https://*.xkcd.com/*",
+        "http://*.commitstrip.com/*"
     ],
+    "icons": {
+        "225": "icons/xkcd225.png",
+        "128": "icons/xkcd128.png",
+        "64": "icons/xkcd64.png",
+        "48": "icons/xkcd48.png",
+        "32": "icons/xkcd32.png",
+        "16": "icons/xkcd16.png"
+    },
     "browser_action": {
         "default_popup": "main.html",
         "default_icon": {

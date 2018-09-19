@@ -26,48 +26,90 @@ button:hover {
     color: white;
 }
 
+div.engineSelector {
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.engineSelector>div.enginesList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 30px;
+    background: white;
+    padding: 2px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px lightgray;
+    transition: all linear 0.1s;
+}
+
+div.engineSelector.active>div.enginesList {
+    width: auto;
+    opacity: 1;
+}
+
+div.engineSelector>div.enginesList>a {
+    text-align: center;
+    width: 100%;
+    padding: 3px 5px;
+    border-bottom: 1px solid lightgray;
+    transition: background linear 0.1s;
+    cursor: pointer;
+}
+
+/* div.engineSelector>div.enginesList>a:hover {
+    background-color: lightgray;
+} */
+
+div.engineSelector>div.enginesList>a:last-child {
+    border-bottom: none;
+}
+
 div.switcher {
     display: flex;
     justify-content: space-between;
 }
 
-div.shares{
+div.shares {
     display: flex;
 }
 
 div.headerContainer {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 
-a[href]{
-    color:#6E7B91;
+a[href] {
+    color: #6E7B91;
     border: 1px solid;
     border-radius: 5px;
     padding: 0px 5px;
     text-decoration: none;
 }
 
-div.shares>a[href]{
+div.shares>a[href] {
     margin-left: 5px;
 }
 
-a[href]:hover,
-#shareThroughVK:hover,
-#shareThroughFB:hover,
-#shareThroughGP:hover {
+a[href]:hover, #shareThroughVK:hover, #shareThroughFB:hover, #shareThroughGP:hover {
     background-color: #6E7B91;
     color: white;
 }
 
-#shareThroughVK{
-    color:#4a76a8;
+#shareThroughVK {
+    color: #4a76a8;
 }
-#shareThroughFB{
-    color:#4267b2;
+
+#shareThroughFB {
+    color: #4267b2;
 }
-#shareThroughGP{
-    color:#db4437;
+
+#shareThroughGP {
+    color: #db4437;
 }
 
 #currentComic {
