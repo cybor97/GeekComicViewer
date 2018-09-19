@@ -1,28 +1,29 @@
 class XKCD extends IComic {
-    constructor(currentComicElement, currentComicNumber) {
-        super(currentComicElement, currentComicNumber);
+    constructor(currentComicElement, currentComicURL) {
+        super(currentComicElement, currentComicURL);
+        this.hostUrl = 'https://xkcd.com';
     }
 
     lastComic() {
-        this.loadComic('https://xkcd.com/', comicNumber => this.lastComicNumber = comicNumber);
+        this.loadComic(this.hostUrl, comicNumber => this.lastComicNumber = comicNumber);
     }
 
     randomComic() {
-        this.loadComic(`https://xkcd.com/${~~(this.lastComicNumber * Math.random())}`);
+        this.loadComic(`${this.hostUrl}/${~~(this.lastComicNumber * Math.random())}`);
     }
 
     nextComic() {
-        if (this.currentComicNumber != null)
-            this.loadComic(`https://xkcd.com/${this.currentComicNumber + 1}/`);
+        if (this.currentComicTag != null)
+            this.loadComic(`${this.hostUrl}/${this.currentComicTag + 1}/`);
     }
 
     prevComic() {
-        if (this.currentComicNumber != null)
-            this.loadComic(`https://xkcd.com/${this.currentComicNumber - 1}/`);
+        if (this.currentComicTag != null)
+            this.loadComic(`${this.hostUrl}/${this.currentComicTag - 1}/`);
     }
 
     shareComic(ev) {
-        super.shareComic(ev, `https://xkcd.com/${this.currentComicNumber}`)
+        super.shareComic(ev, `${this.hostUrl}/${this.currentComicTag}`)
     }
 
     loadComic(url, onSuccess) {
@@ -39,14 +40,14 @@ class XKCD extends IComic {
                 this.currentComicElement.classList.remove('loading');
 
                 this.currentComicURL = new RegExp('https:\\/\\/imgs\\.xkcd\\.com\\/comics\\/\\w*\\.png', 'gm').exec(req.responseText)[0];
-                this.currentComicNumber = parseInt(new RegExp('https:\\/\\/xkcd\\.com\\/(\\d*)\\/').exec(req.responseText)[1]);
+                this.currentComicTag = parseInt(new RegExp('https:\\/\\/xkcd\\.com\\/(\\d*)\\/').exec(req.responseText)[1]);
 
                 if (onSuccess)
-                    onSuccess(this.currentComicNumber);
+                    onSuccess(this.currentComicTag);
 
                 let comicNumberElement = document.getElementById('comicNumber');
-                comicNumberElement.innerText = `#${this.currentComicNumber}`;
-                comicNumberElement.setAttribute('href', `https://xkcd.com/${this.currentComicNumber}`);
+                comicNumberElement.innerText = `#${this.currentComicTag}`;
+                comicNumberElement.setAttribute('href', `https://xkcd.com/${this.currentComicTag}`);
 
                 this.currentComicElement.setAttribute('src', this.currentComicURL);
             }

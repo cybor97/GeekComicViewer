@@ -14,10 +14,12 @@
         <a id="comicNumber" target="_blank"></a>
 
         <div class="engineSelector">
-            <a>XKCD</a>
-            <div class="enginesList">
-                <a onclick="switchXKCD()">XKCD</a>
-                <a onclick="switchCommitStrip()">CommitStrip</a>
+            <a class="enginesListSwitcher" id="enginesListSwitcher">XKCD &#9662;</a>
+            <div class="enginesListWrapper enginesListSwitcher">
+                <div class="enginesList">
+                    <a>XKCD</a>
+                    <a>CommitStrip</a>
+                </div>
             </div>
         </div>
 
