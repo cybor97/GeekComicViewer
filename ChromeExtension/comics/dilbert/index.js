@@ -68,7 +68,7 @@ class Dilbert extends IComic {
 
                 this.currentComicElement.setAttribute('src', this.currentComicURL);
             }
-            else setTimeout(loadComic, 500, url, onSuccess);
+            else setTimeout(this.loadComic, 500, url, onSuccess);
         }
     }
 
