@@ -46,13 +46,16 @@ class IComic {
         if (this.currentComicURL != null) {
             const windowProperties = "menubar=0,status=0,height=500,width=500,position=center";
             switch (ev.target.id) {
-                case "shareThroughVK": window.open(`http://vk.com/share.php?url=${this.currentComicURL}`,
+                case "shareThroughVK": window.open(
+                    `http://vk.com/share.php?url=${this.hostUrl}/${this.currentComicTag}`,
                     "Share via VK", windowProperties);
                     break;
-                case "shareThroughFB": window.open(`https://www.facebook.com/sharer/sharer.php?u=${this.currentComicURL}`,
+                case "shareThroughFB": window.open(
+                    `https://www.facebook.com/sharer/sharer.php?u=${this.hostUrl}/${this.currentComicTag}`,
                     "Share via Facebook", windowProperties);
                     break;
-                case "shareThroughGP": window.open(`https://plus.google.com/share?url=${this.currentComicURL}`,
+                case "shareThroughGP": window.open(
+                    `https://plus.google.com/share?url=${this.hostUrl}/${this.currentComicTag}`,
                     "Share via Google Plus", windowProperties);
                     break;
             }
