@@ -1,6 +1,5 @@
 //used as abstract class
 class IComic {
-    //TODO:Refactor(+implementations), should NOT contain UI elements
     constructor(currentComicElement, currentComicURL) {
         this.currentComicElement = currentComicElement;
         this.currentComicURL = currentComicURL;
@@ -28,18 +27,37 @@ class IComic {
     }
 
     switchEngine() {
-        this.currentComicElement = document.getElementById('currentComic');
-        this.currentComicElement.onclick = this.randomComic.bind(this);
+        if (Commons.currentComicElement) {
+            this.currentComicElement = Commons.currentComicElement;
+            this.currentComicElement.onclick = this.randomComic.bind(this);
 
-        document.getElementById('prevComicButton').onclick = this.prevComic.bind(this);
-        document.getElementById('nextComicButton').onclick = this.nextComic.bind(this);
-        document.getElementById('randomComicButton').onclick = this.randomComic.bind(this);
+            this.comicNumberElement = Commons.comicNumberElement;
 
-        document.getElementById('shareThroughVK').onclick = this.shareComic.bind(this);
-        document.getElementById('shareThroughFB').onclick = this.shareComic.bind(this);
-        document.getElementById('shareThroughGP').onclick = this.shareComic.bind(this);
+            if (Commons.prevComicButton && Commons.nextComicButton && randomComicButton) {
+                Commons.prevComicButton.onclick = this.prevComic.bind(this);
+                Commons.nextComicButton.onclick = this.nextComic.bind(this);
+                Commons.randomComicButton.onclick = this.randomComic.bind(this);
+            }
+            else {
+                console.error('Navigation could not init, buttons are unassigned');
+            }
 
-        return this;
+            if (Commons.shareButtons) {
+                for (let shareButton of Commons.shareButtons) {
+                    shareButton.onclick = this.shareComic.bind(this);
+                }
+            }
+            else {
+                console.error('Sharings could not init, buttons are unassigned');
+            }
+
+            return this;
+        }
+        else {
+            console.error('Engile could not init, current comic element is unassigned');
+            return null;
+        }
+
     }
 
     shareComic(ev) {

@@ -4,7 +4,20 @@ const dilbert = new Dilbert(null, null);
 
 xkcd.lastComic();
 
-setTimeout(() => {
+document.addEventListener('DOMContentLoaded', () => {
+    Commons.prevComicButton = document.getElementById('prevComicButton');
+    Commons.nextComicButton = document.getElementById('nextComicButton');
+    Commons.randomComicButton = document.getElementById('randomComicButton');
+
+    Commons.shareButtons = [
+        document.getElementById('shareThroughVK'),
+        document.getElementById('shareThroughFB'),
+        document.getElementById('shareThroughGP')
+    ];
+
+    Commons.currentComicElement = document.getElementById('currentComic');
+    Commons.comicNumberElement = document.getElementById('comicNumber');
+
     for (let element of document.getElementsByClassName('enginesListSwitcher')) {
         element.onclick = (ev) => {
             if (element.parentElement.classList.contains('active') &&
@@ -33,4 +46,6 @@ setTimeout(() => {
             element.parentElement.classList.toggle('active');
         }
     }
-}, 1);
+}, false);
+// setTimeout(() => {
+// }, 1);

@@ -70,9 +70,8 @@ class CommitStrip extends IComic {
                 if (onSuccess)
                     onSuccess(this.currentComicTag);
 
-                let comicNumberElement = document.getElementById('comicNumber');
-                comicNumberElement.innerText = `#${this.currentComicTag}`;
-                comicNumberElement.setAttribute('href', req.responseURL);
+                this.comicNumberElement.innerText = `#${this.currentComicTag}`;
+                this.comicNumberElement.setAttribute('href', req.responseURL);
 
                 this.currentComicElement.setAttribute('src', this.currentComicURL);
             }
