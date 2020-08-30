@@ -1,8 +1,18 @@
 //used as abstract class
+const CORS_BYPASS_URL = 'https://cors-anywhere.herokuapp.com/';
+
 class IComic {
     constructor(currentComicElement, currentComicURL) {
         this.currentComicElement = currentComicElement;
         this.currentComicURL = currentComicURL;
+    }
+
+    withCorsBypass(url) {
+        return `${CORS_BYPASS_URL}${url}`;
+    }
+
+    cutCorsBypass(url) {
+        return url.split(CORS_BYPASS_URL).pop();
     }
 
     lastComic() {
@@ -71,10 +81,6 @@ class IComic {
                 case "shareThroughFB": window.open(
                     `https://www.facebook.com/sharer/sharer.php?u=${this.hostUrl}/${this.currentComicTag}`,
                     "Share via Facebook", windowProperties);
-                    break;
-                case "shareThroughGP": window.open(
-                    `https://plus.google.com/share?url=${this.hostUrl}/${this.currentComicTag}`,
-                    "Share via Google Plus", windowProperties);
                     break;
             }
         }

@@ -111,7 +111,7 @@ div.shares>a[href] {
     margin-left: 5px;
 }
 
-a[href]:hover, #shareThroughVK:hover, #shareThroughFB:hover, #shareThroughGP:hover {
+a[href]:hover, #shareThroughVK:hover, #shareThroughFB:hover {
     background-color: #6E7B91;
     color: white;
 }
@@ -122,10 +122,6 @@ a[href]:hover, #shareThroughVK:hover, #shareThroughFB:hover, #shareThroughGP:hov
 
 #shareThroughFB {
     color: #4267b2;
-}
-
-#shareThroughGP {
-    color: #db4437;
 }
 
 #currentComic {

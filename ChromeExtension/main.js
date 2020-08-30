@@ -11,8 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     Commons.shareButtons = [
         document.getElementById('shareThroughVK'),
-        document.getElementById('shareThroughFB'),
-        document.getElementById('shareThroughGP')
+        document.getElementById('shareThroughFB')
     ];
 
     Commons.currentComicElement = document.getElementById('currentComic');
@@ -47,5 +46,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 }, false);
-// setTimeout(() => {
-// }, 1);
