@@ -9,6 +9,7 @@ class CommitStrip extends IComic {
         let req = new XMLHttpRequest();
         this.toggleLoading(true);
         req.open('GET', this.withCorsBypass(this.hostUrl));
+        req.setRequestHeader('x-requested-with', 'xhr');
         req.send();
         req.onloadend = () => {
             if(req.status === 200) {
@@ -44,7 +45,7 @@ class CommitStrip extends IComic {
 
         let req = new XMLHttpRequest();
         req.open('GET', this.withCorsBypass(url));
-        // req.setRequestHeader('x-requested-with', 'xhr');
+        req.setRequestHeader('x-requested-with', 'xhr');
         req.send();
         req.onloadend = () => {
             if (req.status === 200) {
