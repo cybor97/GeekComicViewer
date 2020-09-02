@@ -1,7 +1,7 @@
 {
     "name": "GeekComicViewer",
     "short_name": "GCViewer",
-    "version": "2.5.2",
+    "version": "2.6.0",
     "description": "Minimalistic viewer for XKCD and CommitStrip comics",
     "manifest_version": 2,
     "author": "cybor97",
