@@ -46,7 +46,7 @@ class XKCD extends IComic {
                     onSuccess(this.currentComicTag);
 
                 this.comicNumberElement.innerText = `#${this.currentComicTag}`;
-                this.comicNumberElement.setAttribute('href', `https://xkcd.com/${this.currentComicTag}`);
+                this.comicNumberElement.setAttribute('href', `${this.hostUrl}/${this.currentComicTag}`);
 
                 this.currentComicElement.setAttribute('src', this.currentComicURL);
             }

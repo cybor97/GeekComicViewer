@@ -70,16 +70,19 @@ class IComic {
 
     }
 
-    shareComic(ev) {
+    shareComic(ev, url) {
+        if(!url) {
+            url = `${this.hostUrl}/${this.currentComicTag}`;
+        }
         if (this.currentComicURL != null) {
             const windowProperties = "menubar=0,status=0,height=500,width=500,position=center";
             switch (ev.target.id) {
                 case "shareThroughVK": window.open(
-                    `http://vk.com/share.php?url=${this.hostUrl}/${this.currentComicTag}`,
+                    `http://vk.com/share.php?url=${url}`,
                     "Share via VK", windowProperties);
                     break;
                 case "shareThroughFB": window.open(
-                    `https://www.facebook.com/sharer/sharer.php?u=${this.hostUrl}/${this.currentComicTag}`,
+                    `https://www.facebook.com/sharer/sharer.php?u=${url}`,
                     "Share via Facebook", windowProperties);
                     break;
             }

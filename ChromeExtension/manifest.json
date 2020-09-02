@@ -8,6 +8,8 @@
     "permissions": [
         "https://cors-anywhere.herokuapp.com/*",
         "https://*.xkcd.com/*",
+        "https://*.smbc.com",
+        "https://*.commitstrip.com/*",
         "http://*.commitstrip.com/*",
         "http://*.dilbert.com/*",
         "https://*.dilbert.com/*"
