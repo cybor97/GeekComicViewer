@@ -67,7 +67,7 @@ class SMBC extends IComic {
                     onSuccess(this.currentComicTag);
 
                 this.comicNumberElement.innerText = `#${this.currentComicTag}`;
-                this.comicNumberElement.setAttribute('href', `${this.hostUrl}/${this.currentComicTag}`);
+                this.comicNumberElement.setAttribute('href', `${this.hostUrl}/comic/${this.currentComicTag}`);
 
                 this.currentComicElement.setAttribute('src', this.currentComicURL);
             }
