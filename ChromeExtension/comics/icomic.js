@@ -54,7 +54,6 @@ class IComic {
                 Commons.randomComicButton.onclick = this.randomComic.bind(this);
 
                 document.onkeydown = document.onkeypress = (ev) => {
-                    console.log(ev.key,ev.keyCode)
                     switch(ev.keyCode) {
                         case VK_LEFT:
                             this.prevComic.call(this);

@@ -2,6 +2,7 @@ const xkcd = new XKCD(null, null);
 const commitStrip = new CommitStrip(null, null);
 const dilbert = new Dilbert(null, null);
 const smbc = new SMBC(null, null);
+const donthitsave = new DontHitSave(null, null);
 
 xkcd.lastComic();
 
@@ -37,6 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     case 'smbc':
                         smbc.switchEngine().lastComic();
                         break;
+                    case 'donthitsave':
+                        donthitsave.switchEngine().lastComic();
+                        break;
+
                     default:
                         engineName = 'Engine not found';
                         break;
