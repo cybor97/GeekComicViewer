@@ -1,6 +1,11 @@
 //used as abstract class
 const CORS_BYPASS_URL = 'https://cors-anywhere.herokuapp.com/';
 
+const VK_LEFT = 37;
+const VK_RIGHT = 39;
+const VK_R = 114;
+const VK_R_UPPERCASE = 82;
+
 class IComic {
     constructor(currentComicElement, currentComicURL) {
         this.currentComicElement = currentComicElement;
@@ -47,6 +52,22 @@ class IComic {
                 Commons.prevComicButton.onclick = this.prevComic.bind(this);
                 Commons.nextComicButton.onclick = this.nextComic.bind(this);
                 Commons.randomComicButton.onclick = this.randomComic.bind(this);
+
+                document.onkeydown = document.onkeypress = (ev) => {
+                    console.log(ev.key,ev.keyCode)
+                    switch(ev.keyCode) {
+                        case VK_LEFT:
+                            this.prevComic.call(this);
+                            break;
+                        case VK_RIGHT:
+                            this.nextComic.call(this);
+                            break;
+                        case VK_R:
+                        case VK_R_UPPERCASE:
+                            this.randomComic.call(this);
+                            break;
+                    }
+                }
             }
             else {
                 console.error('Navigation could not init, buttons are unassigned');

@@ -43,9 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 document.getElementById('enginesListSwitcher').innerHTML = `${engineName} &#9660;`;
-
             }
-
             element.parentElement.classList.toggle('active');
         }
     }
